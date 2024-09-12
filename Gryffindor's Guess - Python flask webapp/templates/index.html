@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gryffindor's Guess</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gryffindor's Guess</h1>
+      <p>I'm thinking of a number between 1 and 20...</p>
+
+      {% if message %}
+      <div class="message">{{ message }}</div>
+      {% endif %}
+
+      <form method="POST">
+        <input type="hidden" name="num" value="{{ num }}" />
+        <label for="guess">Enter your guess:</label>
+        <input type="number" id="guess" name="guess" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
